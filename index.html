@@ -2,13 +2,20 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Daily Work Checker</title>
+    <title>Taskego</title>
     <link rel="stylesheet" href="style.css">
     <style>
     body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #fff;
+  color: #333;
+}
+
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
 }
 
 h1 {
@@ -80,10 +87,17 @@ li .delete-btn:hover {
   background-color: #cc0f0f;
 }
 
+#toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+
     </style>
   </head>
   <body>
-    <h1>Daily Work Checker</h1>
+    <h1>Taskego Work Checker</h1>
     <form>
       <label for="task-input">Add a task:</label>
       <input type="text" id="task-input">
@@ -93,6 +107,10 @@ li .delete-btn:hover {
     <script>const form = document.querySelector('form');
 const input = document.querySelector('#task-input');
 const taskList = document.querySelector('#task-list');
+const toggleBtn = document.createElement('button');
+toggleBtn.id = 'toggle-btn';
+toggleBtn.innerText = 'Toggle Mode';
+document.body.appendChild(toggleBtn);
 
 // Load tasks from localStorage
 const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -120,6 +138,11 @@ taskList.addEventListener('click', (e) => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
     renderTasks();
   }
+});
+
+// Listen for toggle button clicks
+toggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
 });
 
 // Render tasks
