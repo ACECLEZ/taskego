@@ -2,10 +2,24 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Daily Work Checker</title>
+    <title>Taskego</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-    body {
+  </head>
+  <body>
+    <h1>Taskego Work Checker</h1>
+    <form>
+      <label for="task-input">Add a task:</label>
+      <input type="text" id="task-input">
+      <button type="submit" id="add-task-btn">Add</button>
+    </form>
+    <ul id="task-list"></ul>
+    <button id="toggle-btn">Toggle Mode</button>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -87,17 +101,16 @@ li .delete-btn:hover {
   background-color: #cc0f0f;
 }
 
-    </style>
-  </head>
-  <body>
-    <h1>Daily Work Checker</h1>
-    <button id="mode-toggle">Switch to Dark Mode</button>
-    <form>
-      <label for="task-input">Add a task:</label>
-      <input type="text" id="task-input">
-      <button type="submit" id="add-task-btn">Add</button>
-    </form>
-    <ul id="task-list"></ul>
-    <script></script>
-  </body>
-</html>
+#toggle-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #4CAF50;
+}
+
+#toggle-btn:hover {
+  background-color: #3e8e41;
+  color: white;
+}
